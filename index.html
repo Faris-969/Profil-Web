@@ -3,49 +3,42 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f8ff">
-  <meta name="description" content="Website biodata pribadi Faris Igjaya Somantri.">
-  <title>Biodata Faris | Personal Website</title>
-
-  <script>
-    document.documentElement.classList.add("js-enabled");
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Faris | My Personal Space</title>
 
   <style>
     :root {
-      --bg: #f5f8ff;
-      --surface: #ffffff;
-      --surface-soft: #edf4ff;
-      --text: #18243a;
-      --muted: #68758a;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --border: #e0e8f5;
-      --shadow: 0 12px 35px rgba(30, 64, 120, 0.08);
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #64748b;
+      --blue: #3768f5;
+      --blue-light: #edf2ff;
+      --border: #e5eaf2;
+      --shadow: 0 15px 45px rgba(31, 56, 110, .07);
     }
 
     body.dark {
-      --bg: #101827;
-      --surface: #192438;
-      --surface-soft: #23334d;
-      --text: #eef4ff;
-      --muted: #a7b5ca;
-      --primary: #79a7ff;
-      --primary-dark: #a4c1ff;
-      --border: #30405a;
-      --shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+      --bg: #0c1220;
+      --card: #151f31;
+      --text: #f1f5f9;
+      --muted: #a6b3c7;
+      --blue: #8cacff;
+      --blue-light: #202e49;
+      --border: #29374d;
+      --shadow: 0 15px 45px rgba(0, 0, 0, .18);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 85px;
     }
 
     body {
@@ -53,7 +46,15 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
-      transition: background 0.25s, color 0.25s;
+      transition: background .25s, color .25s;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     a {
@@ -61,881 +62,875 @@
       text-decoration: none;
     }
 
-    button, input {
-      font: inherit;
-    }
-
     button {
       cursor: pointer;
     }
 
-    button:focus-visible,
-    a:focus-visible,
-    input:focus-visible {
-      outline: 3px solid var(--primary);
-      outline-offset: 4px;
-    }
-
-    .container {
-      width: min(1080px, 90%);
+    .wrap {
+      width: min(1050px, 90%);
       margin: auto;
     }
 
-    .navbar {
+    /* Navigasi */
+    header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: var(--surface);
+      z-index: 10;
+      background: var(--card);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-inner {
-      min-height: 72px;
+    .nav {
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
     }
 
-    .logo {
-      font-size: 21px;
+    .brand {
+      font-size: 22px;
       font-weight: 800;
-      color: var(--primary);
-      white-space: nowrap;
+      letter-spacing: -.5px;
     }
 
-    .nav-right {
+    .brand span {
+      color: var(--blue);
+    }
+
+    .nav-actions {
       display: flex;
       align-items: center;
       gap: 20px;
     }
 
-    .nav-links {
+    .links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 24px;
       list-style: none;
     }
 
-    .nav-links a {
+    .links a {
       color: var(--muted);
       font-size: 14px;
-      transition: color 0.2s;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
+    .links a:hover {
+      color: var(--blue);
     }
 
-    .icon-button {
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--border);
+    .small-btn {
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
-      background: var(--surface-soft);
+      border: 1px solid var(--border);
       color: var(--text);
-      font-size: 19px;
+      background: var(--card);
     }
 
-    .menu-button {
+    #menuBtn {
       display: none;
     }
 
+    /* Bagian utama */
     .hero {
-      padding: 100px 0 85px;
-      overflow: hidden;
+      padding: 85px 0 70px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1.2fr .8fr;
       align-items: center;
-      gap: 50px;
+      gap: 55px;
     }
 
-    .eyebrow {
+    .pill {
       display: inline-block;
-      background: var(--surface-soft);
-      color: var(--primary);
-      border: 1px solid var(--border);
+      background: var(--blue-light);
+      color: var(--blue);
       border-radius: 30px;
-      padding: 6px 14px;
-      font-size: 13px;
+      padding: 7px 13px;
+      font-size: 12px;
       font-weight: 700;
       margin-bottom: 22px;
     }
 
-    .hero h1 {
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-      margin-bottom: 18px;
+    h1 {
+      font-size: clamp(38px, 5.5vw, 62px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
     }
 
-    .hero h1 span {
-      color: var(--primary);
+    h1 span {
+      color: var(--blue);
     }
 
-    .hero-description {
+    .intro {
       color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 27px;
+      max-width: 520px;
+      margin-bottom: 28px;
     }
 
-    .hero-buttons {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
 
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 12px;
+    .btn {
       border: 1px solid var(--border);
-      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 12px;
       font-size: 14px;
-      transition: transform 0.2s, background 0.2s;
+      font-weight: 700;
+      background: var(--card);
+      color: var(--text);
+      transition: transform .2s, opacity .2s;
     }
 
-    .button:hover {
+    .btn:hover {
       transform: translateY(-3px);
     }
 
-    .button-primary {
-      background: var(--primary);
+    .btn.primary {
+      background: var(--blue);
+      border-color: var(--blue);
       color: white;
-      border-color: var(--primary);
     }
 
-    body.dark .button-primary {
-      color: #101827;
+    body.dark .btn.primary {
+      color: #0c1220;
     }
 
-    .button-primary:hover {
-      background: var(--primary-dark);
-    }
-
-    .button-secondary {
-      background: var(--surface);
-      color: var(--text);
-    }
-
-    .profile-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: 28px;
+    .profile {
       padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
       text-align: center;
-      position: relative;
+      animation: rise .7s ease both;
     }
 
     .avatar {
-      width: 145px;
-      height: 145px;
+      width: 130px;
+      height: 130px;
+      display: grid;
+      place-items: center;
       margin: 0 auto 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #dbeafe, #93c5fd);
+      border-radius: 35px;
+      transform: rotate(-4deg);
+      background: linear-gradient(145deg, #dbeafe, #93c5fd);
       color: #1d4ed8;
-      border: 7px solid var(--surface-soft);
       font-size: 65px;
       font-weight: 800;
-      animation: float 4s ease-in-out infinite;
+      box-shadow: 0 15px 30px rgba(55, 104, 245, .12);
     }
 
-    .profile-card h2 {
-      font-size: 22px;
+    .profile h2 {
+      font-size: 21px;
       margin-bottom: 4px;
     }
 
-    .profile-card p {
+    .profile p {
       color: var(--muted);
       font-size: 14px;
     }
 
-    .profile-label {
+    .online {
       display: inline-block;
       margin-top: 17px;
-      background: var(--surface-soft);
-      color: var(--primary);
-      border-radius: 20px;
+      color: #16a34a;
+      background: #dcfce7;
       padding: 5px 12px;
+      border-radius: 30px;
       font-size: 12px;
-      font-weight: 700;
     }
 
-    section.content-section {
-      padding: 65px 0;
+    /* Bagian konten */
+    section.content {
+      padding: 60px 0;
     }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 36px;
+    .heading {
+      margin-bottom: 28px;
     }
 
-    .section-heading .small-title {
-      color: var(--primary);
+    .heading small {
+      color: var(--blue);
       text-transform: uppercase;
       font-size: 12px;
-      letter-spacing: 2px;
       font-weight: 800;
+      letter-spacing: 2px;
     }
 
-    .section-heading h2 {
-      font-size: clamp(27px, 4vw, 36px);
-      margin-top: 6px;
+    .heading h2 {
+      font-size: clamp(28px, 4vw, 36px);
+      margin-top: 5px;
+      letter-spacing: -.8px;
     }
 
-    .section-heading p {
+    .heading p {
       color: var(--muted);
-      margin-top: 8px;
       font-size: 14px;
+      margin-top: 5px;
     }
 
-    .about-card,
-    .info-card,
-    .interest-card,
-    .goal-card {
-      background: var(--surface);
+    .about-box {
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
+      padding: 28px;
+      color: var(--muted);
       box-shadow: var(--shadow);
     }
 
-    .about-card {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px;
-      color: var(--muted);
+    .about-box p + p {
+      margin-top: 12px;
     }
 
-    .about-card p + p {
-      margin-top: 15px;
-    }
-
-    .info-grid {
+    .data-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 14px;
     }
 
-    .info-card {
+    .data-card {
       display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      padding: 20px;
-      transition: transform 0.2s, border-color 0.2s;
+      align-items: center;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 18px;
+      transition: transform .2s, border-color .2s;
     }
 
-    .info-card:hover,
-    .interest-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
+    .data-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--blue);
     }
 
-    .info-icon {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
+    .data-icon {
+      width: 45px;
+      height: 45px;
       display: grid;
       place-items: center;
       border-radius: 13px;
-      background: var(--surface-soft);
+      background: var(--blue-light);
       font-size: 21px;
+      flex-shrink: 0;
     }
 
-    .info-card h3 {
-      font-size: 14px;
-      margin-bottom: 3px;
-    }
-
-    .info-card p {
+    .data-card h3 {
+      font-size: 13px;
       color: var(--muted);
-      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .data-card p {
+      font-size: 15px;
+      font-weight: 700;
       overflow-wrap: anywhere;
     }
 
     .interest-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 15px;
     }
 
-    .interest-card {
-      background: var(--surface);
+    .interest {
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 25px;
-      transition: transform 0.2s, border-color 0.2s;
+      padding: 24px;
+      transition: .2s;
     }
 
-    .interest-card .emoji {
-      font-size: 32px;
+    .interest:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue);
+    }
+
+    .interest .emoji {
+      font-size: 30px;
       margin-bottom: 12px;
     }
 
-    .interest-card h3 {
-      margin-bottom: 8px;
+    .interest h3 {
       font-size: 17px;
+      margin-bottom: 6px;
     }
 
-    .interest-card p {
-      font-size: 14px;
+    .interest p {
+      font-size: 13px;
       color: var(--muted);
     }
 
-    .goal-card {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px;
+    .dream {
       display: flex;
-      gap: 20px;
       align-items: flex-start;
-    }
-
-    .goal-icon {
-      font-size: 35px;
-    }
-
-    .goal-card p {
-      color: var(--muted);
-      margin-top: 7px;
-    }
-
-    .chat-section {
-      padding: 70px 0 85px;
-    }
-
-    .chat-box {
-      width: min(650px, 100%);
-      margin: auto;
+      gap: 18px;
+      padding: 25px;
       border: 1px solid var(--border);
-      background: var(--surface);
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      background: var(--blue-light);
+    }
+
+    .dream-icon {
+      font-size: 32px;
+    }
+
+    .dream p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* Interaksi biodata */
+    .extra {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--blue-light);
+      border-radius: 15px;
+      color: var(--muted);
+      animation: rise .3s ease;
+    }
+
+    .extra.open {
+      display: block;
+    }
+
+    /* Chatbot */
+    .chat-layout {
+      width: min(650px, 100%);
+      border: 1px solid var(--border);
+      background: var(--card);
       border-radius: 22px;
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .chat-header {
-      padding: 19px 22px;
-      background: var(--surface-soft);
+    .chat-top {
       display: flex;
       align-items: center;
       gap: 12px;
+      padding: 17px 20px;
+      background: var(--blue-light);
       border-bottom: 1px solid var(--border);
     }
 
     .chat-avatar {
       width: 43px;
       height: 43px;
-      background: var(--primary);
-      color: white;
       display: grid;
       place-items: center;
       border-radius: 50%;
+      background: var(--blue);
+      color: white;
       font-weight: 800;
     }
 
-    .chat-header h3 {
+    body.dark .chat-avatar {
+      color: #0c1220;
+    }
+
+    .chat-top h3 {
       font-size: 15px;
     }
 
-    .chat-status {
-      color: var(--muted);
+    .chat-top p {
       font-size: 12px;
+      color: var(--muted);
     }
 
-    .chat-status::before {
-      content: "";
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      background: #22c55e;
-      border-radius: 50%;
-      margin-right: 5px;
-    }
-
-    .chat-messages {
-      height: 320px;
+    .messages {
+      height: 310px;
       overflow-y: auto;
-      padding: 20px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       background: var(--bg);
     }
 
-    .message {
+    .bubble {
       max-width: 85%;
       padding: 11px 14px;
-      border-radius: 15px;
       font-size: 14px;
-      overflow-wrap: anywhere;
       white-space: pre-wrap;
-      animation: messageIn 0.25s ease both;
+      overflow-wrap: anywhere;
+      border-radius: 15px;
+      animation: rise .2s ease;
     }
 
-    .message.bot {
+    .bubble.bot {
       align-self: flex-start;
-      background: var(--surface);
+      background: var(--card);
       border: 1px solid var(--border);
       border-bottom-left-radius: 4px;
     }
 
-    .message.user {
+    .bubble.user {
       align-self: flex-end;
-      background: var(--primary);
+      background: var(--blue);
       color: white;
       border-bottom-right-radius: 4px;
     }
 
-    body.dark .message.user {
-      color: #101827;
+    body.dark .bubble.user {
+      color: #0c1220;
     }
 
-    .quick-replies {
+    .suggestions {
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
-      padding: 12px 18px 0;
-      background: var(--surface);
+      gap: 8px;
+      padding: 12px 16px 0;
     }
 
-    .quick-button {
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      color: var(--primary);
-      border-radius: 20px;
+    .suggestions button {
       padding: 7px 11px;
+      border-radius: 20px;
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid var(--border);
       font-size: 12px;
-    }
-
-    .quick-button:hover {
-      border-color: var(--primary);
     }
 
     .chat-form {
       display: flex;
-      gap: 10px;
-      padding: 15px 18px 18px;
-      background: var(--surface);
+      gap: 8px;
+      padding: 14px 16px;
     }
 
     .chat-form input {
-      min-width: 0;
       flex: 1;
+      min-width: 0;
       border: 1px solid var(--border);
       background: var(--bg);
       color: var(--text);
       border-radius: 12px;
-      padding: 12px 14px;
-      outline-offset: 2px;
+      padding: 12px;
+      outline-color: var(--blue);
     }
 
-    .send-button {
+    .chat-form button {
       border: none;
       border-radius: 12px;
-      padding: 0 18px;
-      background: var(--primary);
+      padding: 0 16px;
+      background: var(--blue);
       color: white;
       font-weight: 700;
     }
 
-    body.dark .send-button {
-      color: #101827;
+    body.dark .chat-form button {
+      color: #0c1220;
     }
 
-    .chat-note {
-      padding: 0 18px 15px;
-      color: var(--muted);
+    .note {
+      padding: 0 16px 16px;
       font-size: 11px;
-      background: var(--surface);
+      color: var(--muted);
     }
 
-    .footer {
+    footer {
       border-top: 1px solid var(--border);
-      text-align: center;
       padding: 25px 15px;
+      text-align: center;
+      background: var(--card);
       color: var(--muted);
       font-size: 13px;
-      background: var(--surface);
     }
 
-    .footer strong {
-      color: var(--primary);
+    footer strong {
+      color: var(--blue);
     }
 
-    .back-top {
+    #toTop {
       position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 50;
-      width: 45px;
-      height: 45px;
-      border: none;
-      border-radius: 14px;
-      background: var(--primary);
+      right: 18px;
+      bottom: 18px;
+      width: 43px;
+      height: 43px;
+      border: 0;
+      border-radius: 13px;
+      background: var(--blue);
       color: white;
-      box-shadow: var(--shadow);
       font-size: 20px;
+      box-shadow: var(--shadow);
       opacity: 0;
-      visibility: hidden;
+      pointer-events: none;
       transform: translateY(10px);
-      transition: 0.2s;
+      transition: .2s;
     }
 
-    .back-top.visible {
+    body.dark #toTop {
+      color: #0c1220;
+    }
+
+    #toTop.visible {
       opacity: 1;
-      visibility: visible;
+      pointer-events: auto;
       transform: translateY(0);
     }
 
     .toast {
       position: fixed;
-      z-index: 200;
+      bottom: 75px;
       left: 50%;
-      bottom: 25px;
-      transform: translate(-50%, 20px);
-      opacity: 0;
-      visibility: hidden;
-      max-width: 90%;
-      background: var(--text);
-      color: var(--surface);
+      transform: translate(-50%, 10px);
       padding: 12px 18px;
       border-radius: 12px;
-      box-shadow: var(--shadow);
-      font-size: 14px;
+      color: var(--card);
+      background: var(--text);
+      opacity: 0;
+      visibility: hidden;
+      transition: .2s;
       text-align: center;
-      transition: 0.25s;
+      font-size: 14px;
+      width: max-content;
+      max-width: 90%;
+      z-index: 30;
     }
 
-    .toast.visible {
+    .toast.show {
       opacity: 1;
       visibility: visible;
       transform: translate(-50%, 0);
     }
 
-    /* Animasi tetap aman: konten tampil normal jika JS tidak berjalan */
-    .js-enabled .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+    .reveal {
+      animation: rise .6s ease both;
     }
 
-    .js-enabled .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    @keyframes messageIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        padding: 65px 0;
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
       }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    @media (max-width: 760px) {
       .hero-grid {
         grid-template-columns: 1fr;
         gap: 35px;
-      }
-
-      .hero-text {
-        text-align: center;
-      }
-
-      .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .profile-card {
-        width: min(380px, 100%);
-        margin: auto;
-      }
-
-      .interest-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .nav-right {
-        gap: 10px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: 91%;
-      }
-
-      .nav-inner {
-        min-height: 65px;
-      }
-
-      .menu-button {
-        display: inline-grid;
-        place-items: center;
-      }
-
-      .nav-right {
-        gap: 8px;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 65px;
-        left: 0;
-        right: 0;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 10px 5%;
-        background: var(--surface);
-        border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 12px 8px;
       }
 
       .hero {
         padding: 55px 0;
       }
 
+      .hero-text {
+        text-align: center;
+      }
+
+      .intro {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .profile {
+        width: min(370px, 100%);
+        margin: auto;
+      }
+
+      .nav-actions {
+        gap: 9px;
+      }
+
+      .links {
+        gap: 13px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .nav {
+        height: 65px;
+      }
+
+      #menuBtn {
+        display: block;
+      }
+
+      .links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        padding: 10px 5%;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .links.open {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .links a {
+        display: block;
+        padding: 10px;
+      }
+
       .hero h1 {
-        font-size: 39px;
+        font-size: 41px;
       }
 
-      section.content-section {
-        padding: 48px 0;
+      section.content {
+        padding: 45px 0;
       }
 
-      .info-grid,
+      .data-grid,
       .interest-grid {
         grid-template-columns: 1fr;
       }
 
-      .about-card,
-      .goal-card {
-        padding: 22px;
+      .about-box {
+        padding: 21px;
       }
 
-      .goal-card {
-        gap: 12px;
+      .dream {
+        padding: 19px;
+        gap: 10px;
       }
 
-      .chat-messages {
-        height: 300px;
-      }
-
-      .chat-form {
-        gap: 7px;
-        padding: 12px;
-      }
-
-      .send-button {
-        padding: 0 13px;
+      .messages {
+        height: 290px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
+        animation-duration: .01ms !important;
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="#home" class="logo">Faris<span>.</span></a>
+  <header>
+    <nav class="wrap nav">
+      <a class="brand" href="#home">faris<span>.web</span></a>
 
-      <div class="nav-right">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Beranda</a></li>
-          <li><a href="#tentang">Tentang</a></li>
+      <div class="nav-actions">
+        <ul class="links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Tentang</a></li>
           <li><a href="#biodata">Biodata</a></li>
-          <li><a href="#hobi">Hobi</a></li>
+          <li><a href="#interest">Minat</a></li>
           <li><a href="#chat">Chat</a></li>
         </ul>
 
-        <button class="icon-button" id="themeButton"
-          type="button" aria-label="Ganti tema" title="Ganti tema">
-          🌙
-        </button>
+        <button class="small-btn" id="themeBtn"
+          type="button" aria-label="Ganti tema">🌙</button>
 
-        <button class="icon-button menu-button" id="menuButton"
+        <button class="small-btn" id="menuBtn"
           type="button" aria-label="Buka menu"
-          aria-expanded="false">
-          ☰
-        </button>
+          aria-expanded="false">☰</button>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <main>
-    <!-- BERANDA -->
     <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-text reveal">
-          <div class="eyebrow">👋 Selamat datang di website saya</div>
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="pill">✦ WELCOME TO MY WEBSITE</div>
 
-          <h1>Halo, saya <span>Faris</span></h1>
+          <h1>Hi, I'm<br><span>Faris Igjaya.</span></h1>
 
-          <p class="hero-description">
-            Saya seorang pelajar SMA yang tertarik dengan teknologi,
-            pemrograman, dan pengalaman baru. Kenali saya lebih dekat
-            melalui website pribadi ini!
+          <p class="intro">
+            Seorang pelajar SMA yang tertarik dengan teknologi,
+            dunia pemrograman, dan pengalaman baru. Ini adalah
+            ruang kecil untuk mengenal saya lebih dekat.
           </p>
 
-          <div class="hero-buttons">
-            <a href="#tentang" class="button button-primary">
-              Kenali Saya →
-            </a>
-
-            <button class="button button-secondary" id="greetButton"
-              type="button">
-              ✨ Sapa Saya
+          <div class="actions">
+            <a href="#about" class="btn primary">Kenali Saya ↗</a>
+            <button class="btn" id="helloBtn" type="button">
+              Say Hello 👋
             </button>
           </div>
         </div>
 
-        <div class="profile-card reveal">
+        <div class="profile">
           <div class="avatar">F</div>
           <h2>Faris Igjaya Somantri</h2>
-          <p>Pelajar SMA · Bandung, Indonesia</p>
-          <span class="profile-label">Personal Website</span>
+          <p>Student · Bandung, Indonesia</p>
+          <span class="online">● Personal Website</span>
         </div>
       </div>
     </section>
 
-    <!-- TENTANG -->
-    <section class="content-section" id="tentang">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="small-title">Tentang Saya</span>
-          <h2>Kenalan Lebih Dekat</h2>
-          <p>Sedikit cerita tentang diri saya.</p>
+    <section class="content" id="about">
+      <div class="wrap">
+        <div class="heading reveal">
+          <small>01 / ABOUT</small>
+          <h2>Tentang Saya</h2>
+          <p>Kenali sedikit cerita di balik nama ini.</p>
         </div>
 
-        <div class="about-card reveal">
+        <div class="about-box reveal">
           <p>
-            Halo! Saya Faris, seorang pelajar SMA yang senang belajar
-            hal baru dan mengembangkan kemampuan diri. Saya memiliki
-            ketertarikan pada dunia teknologi, terutama pembuatan
-            website dan pemrograman.
+            Halo! Saya Faris, seorang pelajar SMA yang senang
+            mempelajari hal baru dan mengembangkan kemampuan diri.
+            Saya tertarik pada teknologi dan cara membuat website
+            menggunakan kode.
           </p>
           <p>
-            Selain belajar, saya juga suka bermain badminton.
-            Saya ingin terus berkembang, mendapatkan pengalaman baru,
-            dan mempersiapkan diri untuk meraih cita-cita di masa depan.
+            Di luar kegiatan belajar, saya suka bermain badminton.
+            Saya percaya bahwa setiap pengalaman bisa menjadi
+            kesempatan untuk belajar dan berkembang.
           </p>
-          <p>
-            Jelajahi website ini dan coba fitur chat untuk mengenal
-            saya melalui beberapa pertanyaan sederhana!
-          </p>
+
+          <button class="btn primary" id="moreBtn"
+            type="button" style="margin-top:20px">
+            Kenali Saya Lebih Jauh +
+          </button>
+
+          <div class="extra" id="extraInfo">
+            <strong>Fakta tentang Faris</strong>
+            <p>📍 Tinggal di Bandung, Jawa Barat.</p>
+            <p>🏸 Suka bermain badminton.</p>
+            <p>💻 Tertarik pada pemrograman dan pembuatan website.</p>
+            <p>🎯 Bercita-cita menjadi software engineer.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- BIODATA -->
-    <section class="content-section" id="biodata">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="small-title">Informasi Pribadi</span>
-          <h2>Biodata Diri</h2>
-          <p>Informasi singkat mengenai saya.</p>
+    <section class="content" id="biodata">
+      <div class="wrap">
+        <div class="heading reveal">
+          <small>02 / PROFILE</small>
+          <h2>Biodata Pribadi</h2>
+          <p>Informasi singkat tentang saya.</p>
         </div>
 
-        <div class="info-grid">
-          <article class="info-card reveal">
-            <div class="info-icon">👤</div>
-            <div>
-              <h3>Nama Lengkap</h3>
-              <p>Faris Igjaya Somantri</p>
-            </div>
+        <div class="data-grid">
+          <div class="data-card reveal">
+            <div class="data-icon">👤</div>
+            <div><h3>Nama Lengkap</h3><p>Faris Igjaya Somantri</p></div>
+          </div>
+
+          <div class="data-card reveal">
+            <div class="data-icon">🎓</div>
+            <div><h3>Status</h3><p>Pelajar SMA</p></div>
+          </div>
+
+          <div class="data-card reveal">
+            <div class="data-icon">📍</div>
+            <div><h3>Domisili</h3><p>Bandung, Jawa Barat</p></div>
+          </div>
+
+          <div class="data-card reveal">
+            <div class="data-icon">🏸</div>
+            <div><h3>Hobi</h3><p>Bermain badminton</p></div>
+          </div>
+
+          <div class="data-card reveal">
+            <div class="data-icon">💻</div>
+            <div><h3>Minat</h3><p>Teknologi dan coding</p></div>
+          </div>
+
+          <div class="data-card reveal">
+            <div class="data-icon">🚀</div>
+            <div><h3>Cita-Cita</h3><p>Software Engineer</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="interest">
+      <div class="wrap">
+        <div class="heading reveal">
+          <small>03 / INTERESTS</small>
+          <h2>Things I Like</h2>
+          <p>Hal yang saya sukai dan ingin pelajari.</p>
+        </div>
+
+        <div class="interest-grid">
+          <article class="interest reveal">
+            <div class="emoji">🏸</div>
+            <h3>Badminton</h3>
+            <p>Berolahraga, melatih fokus, dan menjaga sportivitas.</p>
           </article>
 
-          <article class="info-card reveal">
-            <div class="info-icon">🎓</div>
-            <div>
-              <h3>Status</h3>
-              <p>Pelajar SMA</p>
-            </div>
+          <article class="interest reveal">
+            <div class="emoji">💻</div>
+            <h3>Technology</h3>
+            <p>Mengenal teknologi dan mencoba hal baru di dunia digital.</p>
           </article>
 
-          <article class="info-card reveal">
-            <div class="info-icon">📍</div>
-            <div>
-              <h3>Domisili</h3>
-              <p>Bandung, Jawa Barat</p>
-            </div>
-          </article>
-
-          <article class="info-card reveal">
-            <div class="info-icon">🏸</div>
-            <div>
-              <h3>Hobi</h3>
-              <p>Bermain badminton</p>
-            </div>
-          </article>
-
-          <article class="info-card reveal">
-            <div class="info-icon">💻</div>
-            <div>
-              <h3>Minat</h3>
-              <p>Teknologi dan pemrograman</p>
-            </div>
-          </article>
-
-          <article class="info-card reveal">
-            <div class="info-icon">🚀</div>
-            <div>
-              <h3>Cita-Cita</h3>
-              <p>Software Engineer</p>
-            </div>
+          <article class="interest reveal">
+            <div class="emoji">🌐</div>
+            <h3>Web Development</h3>
+            <p>Belajar membuat website dengan HTML, CSS, dan JavaScript.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- HOBI -->
-    <section class="content-section" id="hobi">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="small-title">Hal yang Saya Sukai</span>
-          <h2>Hobi dan Minat</h2>
-        
+    <section class="content" id="dream">
+      <div class="wrap">
+        <div class="heading reveal">
+          <small>04 / MY DREAM</small>
+          <h2>Tujuan Masa Depan</h2>
+        </div>
+
+        <div class="dream reveal">
+          <div class="dream-icon">🎯</div>
+          <div>
+            <h3>Menjadi Software Engineer</h3>
+            <p>
+              Saya ingin terus belajar pemrograman dan suatu hari
+              mampu membuat aplikasi atau website yang bermanfaat
+              bagi banyak orang.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="chat">
+      <div class="wrap">
+        <div class="heading reveal">
+          <small>05 / INTERACTIVE</small>
+          <h2>Let's Talk!</h2>
+          <p>Coba ngobrol dengan asisten biodata Faris.</p>
+        </div>
+
+        <div class="chat-layout reveal">
+          <div class="chat-top">
+            <div class="chat-avatar">F</div>
+            <div>
+              <h3>Faris Assistant</h3>
+              <p>Balasan otomatis · Siap membantu</p>
+            </div>
+          </div>
+
+          <div class="messages" id="messages" aria-live="polite">
+            <div class="bubble bot">
+              Halo! 👋 Aku asisten biodata Faris.
+              Mau tahu tentang apa? Coba pilih pertanyaan di bawah!
+            </div>
+          </div>
+
+          <div class="suggest
